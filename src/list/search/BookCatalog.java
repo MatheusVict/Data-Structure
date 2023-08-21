@@ -51,4 +51,43 @@ public class BookCatalog {
     }
     return bookByTitle;
   }
+
+  public static void main(String[] args) {
+    BookCatalog bookCatalog = new BookCatalog();
+    System.out.println("Adding books to the catalog...");
+    System.out.println("Before adding books, the catalog is empty: " + bookCatalog.books.size());
+
+    bookCatalog.addBook("The Godfather", "Mario Puzo", 1969);
+    bookCatalog.addBook("The Da Vinci Code", "Dan Brown", 2003);
+    bookCatalog.addBook("The Lost Symbol", "Dan Brown", 2009);
+    bookCatalog.addBook("Angels & Demons", "Dan Brown", 2000);
+    bookCatalog.addBook("The Godfather", "Mario Puzo", 1969);
+    bookCatalog.addBook("The Sicilian", "Mario Puzo", 1984);
+
+    System.out.println("---------------------------------");
+
+    System.out.println("After adding books, the catalog has " + bookCatalog.books.size() + " books.");
+
+    System.out.println("---------------------------------");
+
+    System.out.println("Searching for books by author...");
+    List<Book> foundByAuthor = bookCatalog.findByAuthor("Mario Puzo");
+    System.out.println(
+            "Found " + foundByAuthor.size() +
+                    " books by Mario Puzo. They are: " + foundByAuthor);
+
+    System.out.println("---------------------------------");
+
+    System.out.println("Searching for books by year range...");
+    List<Book> foundByYearRange = bookCatalog.findByYearRange(1969, 2003);
+    System.out.println(
+            "Found " + foundByYearRange.size() +
+                    " books between 1969 and 2003. They are: " + foundByYearRange);
+
+    System.out.println("---------------------------------");
+
+    System.out.println("Searching for a book by title...");
+    Book foundByTitle = bookCatalog.findByTitle("The Sicilian");
+    System.out.println("Found the book: " + foundByTitle);
+  }
 }
