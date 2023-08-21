@@ -31,8 +31,25 @@ public class TaskList {
   }
 
   public void printTasksDescriptions() {
-    for (Task task: this.tasks) {
-      System.out.println(task.getDescription());
-    }
+    System.out.println("Tasks descriptions: " + this.tasks);
+  }
+
+  public static void main(String[] args) {
+    TaskList taskList = new TaskList();
+
+    System.out.println("Number of tasks: " + taskList.getNumberOfTasks());
+
+    taskList.addTask("Buy milk");
+    taskList.addTask("Buy milk");
+    taskList.addTask("Buy milk");
+    taskList.addTask("Buy bread");
+    taskList.addTask("Buy butter");
+    taskList.addTask("Buy eggs");
+    System.out.println("Number of tasks: " + taskList.getNumberOfTasks());
+    taskList.printTasksDescriptions();
+
+    taskList.removeTask("Buy milk");
+
+    taskList.printTasksDescriptions();
   }
 }
