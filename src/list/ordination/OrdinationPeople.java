@@ -28,4 +28,17 @@ public class OrdinationPeople {
     peoplesByHeight.sort(new ComparatorPeopleByHeight());
     return peoplesByHeight;
   }
+
+  public static void main(String[] args) {
+    OrdinationPeople ordinationPeople = new OrdinationPeople();
+
+    ordinationPeople.addPeople("João", 20, 1.80);
+    ordinationPeople.addPeople("Pedro", 15, 1.70);
+    ordinationPeople.addPeople("Maria", 30, 1.60);
+
+    System.out.println("number of peoples: " + ordinationPeople.peoples.size());
+
+    System.out.println("Order by age: " + ordinationPeople.orderByAge());
+    System.out.println("Order by height: " + ordinationPeople.orderByHeight());
+  }
 }
